@@ -19,13 +19,13 @@
     </section>
     <section class="container-fluid">
         <article class="row text-center">
-            <a href="{{ url_for('insert_info_method', page_type='self') }}" class="col-sm-6 bg-primary py-5" id="main-font-style">
+            <a href="{{ url_for('insert_info_method', page_type='self') }}" class="col-sm-6 bg-primary py-3" id="main-font-style">
                 <img src="{{ url_for('static', filename='img/edit.svg') }}" alt="self writing" width="7%" height="auto">
-                직접 입력
+                <div>직접 입력</div>
             </a>
-            <a href="{{ url_for('insert_info_method', page_type='excel') }}" class="col-sm-6 bg-success py-5" id="main-font-style">
+            <a href="{{ url_for('insert_info_method', page_type='excel') }}" class="col-sm-6 bg-success py-3" id="main-font-style">
                 <img src="{{ url_for('static', filename='img/spreadsheet.svg') }}" alt="excel" width="7%" height="auto">
-                Excel 업로드
+                <div>Excel 업로드</div>
             </a>
         </article>
     </section>

@@ -6,14 +6,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
     <style>
-        label {
-            margin: 0;
-            padding: 0;
-        }
-
-        input {
-            width: 100%;
-        }
+        label { margin: 0; padding: 0; }
+        input { width: 100%; }
     </style>
 </head>
 <body>
@@ -29,32 +23,45 @@
     </section>
     <section class="container-fluid">
         <article class="row text-center">
-            <a href="{{ url_for('insert_info_method', page_type='self') }}" class="col-sm-6 bg-primary py-5" id="main-font-style">
+            <a href="{{ url_for('insert_info_method', page_type='self') }}" class="col-sm-6 bg-primary py-3" id="main-font-style">
                 <img src="{{ url_for('static', filename='img/edit.svg') }}" alt="self writing" width="7%" height="auto">
-                직접 입력
+                <div>직접 입력</div>
             </a>
-            <a href="{{ url_for('insert_info_method', page_type='excel') }}" class="col-sm-6 bg-success py-5" id="main-font-style">
+            <a href="{{ url_for('insert_info_method', page_type='excel') }}" class="col-sm-6 bg-success py-3" id="main-font-style">
                 <img src="{{ url_for('static', filename='img/spreadsheet.svg') }}" alt="excel" width="7%" height="auto">
-                Excel 업로드
+                <div>Excel 업로드</div>
             </a>
         </article>
     </section>
     <section class="container-fluid bg-info pt-2 pb-2">
-        <form method="post" action="{{ url_for('self_processing') }}">
+        <form method="post" action="{{ url_for('self_set_num_of_subjects') }}">
             <div class="row pl-1">
-                <label class="col-xl-2 my-2"><input type="text" name="subject_name" placeholder="과목명"></label>
-                <label class="col-xl-2 my-2"><input type="number" min="1" name="ranking" placeholder="석차"></label>
-                <label class="col-xl-2 my-2"><input type="number" min="1" name="same_ranking_num" placeholder="동석차"></label>
-                <label class="col-xl-2 my-2"><input type="number" min="1" name="student_num" placeholder="이수자"></label>
-                <label class="col-xl-2 my-2"><input type="number" min="1" name="semester_hour" placeholder="단위"></label>
+                <label class="col-lg-4 my-2"><input type="number" class="btn btn-light" min="1" name="num_of_subjects" placeholder="과목 수"></label>
+                <label class="col-xl-2 my-2"><input type="submit" class="btn btn-light" id="main-font-style" style="font-size: 1.1em;" value="설정 완료"></label>
             </div>
-            <button><img src="{{ url_for('static', filename='img/add.svg') }}" alt="self writing" width="7%" height="auto"></button>
+        </form>
+        <br>
+        <form method="post" action="{{ url_for('self_processing') }}">
+            {% for v in name_of_ques_with_index %}
+                <div class="row pl-1">
+                    <div class="col-xl-1 my-2" id="main-font-style">{{ v[0] }}</div>
+                    <label class="col-xl-1 my-2"><input type="text" class="btn btn-light" name="{{ v[1] }}" placeholder="과목명"></label>
+                    <label class="col-xl-1 my-2"><input type="number" class="btn btn-light" min="1" name="{{ v[2] }}" placeholder="석차"></label>
+                    <label class="col-xl-1 my-2"><input type="number" class="btn btn-light" min="1" name="{{ v[3] }}" placeholder="동석차"></label>
+                    <label class="col-xl-1 my-2"><input type="number" class="btn btn-light" min="1" name="{{ v[4] }}" placeholder="이수자"></label>
+                    <label class="col-xl-1 my-2"><input type="number" class="btn btn-light" min="1" name="{{ v[5] }}" placeholder="단위"></label>
+                </div>
+            {% endfor %}
+            <br>
+            <div class="row pl-1">
+                <label class="col-lg-4" id="main-font-style">&#8251; 업로드 전 잘못된 내용은 없는지 다시 확인해 주세요.</label>
+                <label class="col-xl-2"><input type="submit" class="btn btn-warning" id="main-font-style" style="font-size: 1.1em;" value="업로드"></label>
+            </div>
         </form>
     </section>
     <footer class="container-fluid bg-dark" id="source-font-style_wide">
         Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris" id="source-font-style">Becris</a> from <a href="https://www.flaticon.com/" title="Flaticon" id="source-font-style"> www.flaticon.com</a><br>
-        Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" id="source-font-style">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" id="source-font-style"> www.flaticon.com</a><br>
-        Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris" id="source-font-style">Becris</a> from <a href="https://www.flaticon.com/" title="Flaticon" id="source-font-style"> www.flaticon.com</a>
+        Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" id="source-font-style">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" id="source-font-style"> www.flaticon.com</a>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
