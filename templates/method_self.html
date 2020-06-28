@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>내신 산출 - 직접 입력</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <style>
+        label {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header class="container-fluid bg-dark px-4 pt-3 pb-2">
+        <h1 id="title-font-style">너의 내신이 궁금해??</h1>
+    </header>
+    <section class="container-fluid">
+        <article class="row text-center">
+            <a href="{{ url_for('insert_info_method', page_type='default') }}" class="col-sm-12 bg-secondary px-3 pt-3 pb-1" style="text-decoration: none;">
+                <h3 id="title-font-style">성적 입력 방법</h3>
+            </a>
+        </article>
+    </section>
+    <section class="container-fluid">
+        <article class="row text-center">
+            <a href="{{ url_for('insert_info_method', page_type='self') }}" class="col-sm-6 bg-primary py-5" id="main-font-style">
+                <img src="{{ url_for('static', filename='img/edit.svg') }}" alt="self writing" width="7%" height="auto">
+                직접 입력
+            </a>
+            <a href="{{ url_for('insert_info_method', page_type='excel') }}" class="col-sm-6 bg-success py-5" id="main-font-style">
+                <img src="{{ url_for('static', filename='img/spreadsheet.svg') }}" alt="excel" width="7%" height="auto">
+                Excel 업로드
+            </a>
+        </article>
+    </section>
+    <section class="container-fluid bg-info pt-2 pb-2">
+        <form method="post" action="{{ url_for('self_processing') }}">
+            <div class="row pl-1">
+                <label class="col-xl-2 my-2"><input type="text" name="subject_name" placeholder="과목명"></label>
+                <label class="col-xl-2 my-2"><input type="number" min="1" name="ranking" placeholder="석차"></label>
+                <label class="col-xl-2 my-2"><input type="number" min="1" name="same_ranking_num" placeholder="동석차"></label>
+                <label class="col-xl-2 my-2"><input type="number" min="1" name="student_num" placeholder="이수자"></label>
+                <label class="col-xl-2 my-2"><input type="number" min="1" name="semester_hour" placeholder="단위"></label>
+            </div>
+            <button><img src="{{ url_for('static', filename='img/add.svg') }}" alt="self writing" width="7%" height="auto"></button>
+        </form>
+    </section>
+    <footer class="container-fluid bg-dark" id="source-font-style_wide">
+        Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris" id="source-font-style">Becris</a> from <a href="https://www.flaticon.com/" title="Flaticon" id="source-font-style"> www.flaticon.com</a><br>
+        Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" id="source-font-style">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" id="source-font-style"> www.flaticon.com</a><br>
+        Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris" id="source-font-style">Becris</a> from <a href="https://www.flaticon.com/" title="Flaticon" id="source-font-style"> www.flaticon.com</a>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+</body>
+</html>

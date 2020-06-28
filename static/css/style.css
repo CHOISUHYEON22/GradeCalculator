@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+#title-font-style {
+    font-family: 'Jua', serif;
+    color: white;
+}
+
+#main-font-style {
+    text-decoration: none;
+    font-family: 'Jua', serif;
+    font-size: 1.3em;
+    color: black;
+}
+
+#source-font-style_wide {
+    font-family: Arial, serif;
+    font-size: 1.1em;
+    color: whitesmoke;
+}
+
+#source-font-style {
+    font-family: Arial, serif;
+    font-size: 1.2em;
+    color: #007bff;
+}
