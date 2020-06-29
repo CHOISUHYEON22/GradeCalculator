@@ -32,14 +32,17 @@ def self_set_num_of_subjects():
 
 @app.route('/method_self', methods=['GET'])
 def method_self():
+    num_of_subjects = request.args.get('num_of_subjects')
     name = ('과목_', 'subject_name', 'ranking', 'same_ranking_num', 'student_num', 'semester_hour')
-    name_of_ques_with_index = tuple(tuple(f"{j}{i}" for j in name) for i in range(int(request.args.get('num_of_subjects'))))
-    return render_template('method_self.html', name_of_ques_with_index=name_of_ques_with_index)
+    name_of_ques_with_index = (tuple(f'{j}{i}' for j in name) for i in range(int(num_of_subjects)))
+    return render_template('method_self.html', name_of_ques_with_index=name_of_ques_with_index, num_of_subjects=num_of_subjects)
 
 
 @app.route('/self_processing', methods=['POST'])
 def self_processing():
-    pass
+    num_of_subjects = request.form['num_of_subjects']
+    name = ('subject_name', 'ranking', 'same_ranking_num', 'student_num', 'semester_hour')
+    input_data = tuple(tuple(request.form[f'{j}{i}'] for j in name) for i in range(int(num_of_subjects)))
 
 
 if __name__ == '__main__':
