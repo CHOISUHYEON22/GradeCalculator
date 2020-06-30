@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block additory_style %}
+    <style> th, td { width: 10%; } </style>
+{% endblock %}
+
+{% block detail_contents %}
+    <!--<section class="container-fluid bg-info pt-2 pb-2">
+        <article class="row pl-1">
+            <div class="col-xl-2 my-2">과목명</div>
+            <div class="col-xl-2 my-2">등급</div>
+            <div class="col-xl-2 my-2">등급 내 위치</div>
+        </article>
+        {% for k, v in grade.items() %}
+            <article class="row pl-1">
+                <div class="col-xl-2 my-2">{{ k }}</div>
+                <div class="col-xl-2 my-2">{{ v[0] }}등급</div>
+                <div class="col-xl-2 my-2">{{ v[0] }}등급 중 상위 {{ v[1] }}%</div>
+            </article>
+        {% endfor %}
+        <article class="row pl-1">
+            <div class="col-xl-2 my-2">평균 등급</div>
+            <div class="col-xl-4 my-2">{{ average }}</div>
+        </article>
+    </section>-->
+    <div class="table-responsive bg-info px-3 pt-3">
+        <table class="table table-bordered table-hover bg-info">
+            <thead>
+                <tr>
+                    <th>과목명</th>
+                    <th>등급</th>
+                    <th>등급 내 위치</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for k, v in grade.items() %}
+                    <tr>
+                        <th>{{ k }}</th>
+                        <td>{{ v[0] }}등급</td>
+                        <td>{{ v[0] }}등급 내 상위 {{ v[1] }}%</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>평균 등급</th>
+                    <th colspan="2">{{ average }}등급</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endblock %}
