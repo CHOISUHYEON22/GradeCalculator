@@ -2,10 +2,11 @@
 
 {% block detail_contents %}
     <section class="container-fluid bg-info py-3 text-right">
-        <form method="post" action="{{ url_for('excel_processing') }}">
+        <form method="post" action="{{ url_for('excel_processing') }}" enctype="multipart/form-data">
             <input type="file" class="col-xl-3 btn btn-light my-2" id="main-font-style" style="font-size: 1.1em;" name="excel_file" accept=".xlsx">
             <input type="submit" class="col-xl-1 btn btn-warning btn-lg my-2" id="main-font-style" style="font-size: 1.1em;" value="업로드">
             <a class="col-xl-2 btn btn-warning btn-lg my-2"  id="main-font-style" style="font-size: 1.1em;" href="{{ url_for('static', filename='xlsx/성적_입력_서식.xlsx') }}" download="download file name">Excel 서식 다운로드</a>
         </form>
+        <label class="col-lg-4 my-2" id="main-font-style">&#8251; 업로드 전 다운로드 받았던 파일의 이름을 변경 후 업로드 해주세요.</label>
     </section>
 {% endblock %}
